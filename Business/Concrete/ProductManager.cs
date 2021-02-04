@@ -18,15 +18,13 @@ namespace Business.Concrete
         }
         public List<Product> GetAll()
         {
-          // iş kodlari
-          // Yetkisi var mmı ?
+            //İş kodları
+            //Yetkisi var mı?
 
-          return _productDao.GetAll();
-
-
+            return _productDao.GetAll();
         }
 
-        public List<Product> GetAllByCategory(int id)
+        public List<Product> GetAllByCategoryId(int id)
         {
             return _productDao.GetAll(p => p.CategoryId == id);
         }

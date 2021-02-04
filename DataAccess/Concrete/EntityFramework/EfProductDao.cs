@@ -13,8 +13,8 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public void Add(Product entity)
         {
-            //IDispossable pattern implementation of c#
-            using (NorthwindContext context =new NorthwindContext() )
+            //IDisposable pattern implementation of c#
+            using (NorthwindContext context = new NorthwindContext())
             {
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
@@ -24,7 +24,6 @@ namespace DataAccess.Concrete.EntityFramework
 
         public void Delete(Product entity)
         {
-
             using (NorthwindContext context = new NorthwindContext())
             {
                 var deletedEntity = context.Entry(entity);
@@ -41,11 +40,12 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public List<Product> GetAll(Expression<Func<Product, bool>> filter =null)
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
         {
             using (NorthwindContext context = new NorthwindContext())
             {
-                return filter == null ? context.Set<Product>().ToList() : context.Set<Product>().Where(filter).ToList();
+                return filter == null ? context.Set<Product>().ToList()
+                    : context.Set<Product>().Where(filter).ToList();
             }
         }
 
@@ -53,8 +53,8 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (NorthwindContext context = new NorthwindContext())
             {
-                var uptatedEntity = context.Entry(entity);
-                uptatedEntity.State = EntityState.Modified;
+                var updatedEntity = context.Entry(entity);
+                updatedEntity.State = EntityState.Modified;
                 context.SaveChanges();
             }
         }

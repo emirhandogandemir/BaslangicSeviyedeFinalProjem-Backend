@@ -9,12 +9,12 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-          ProductManager productManager= new ProductManager(new EfProductDao());
+            ProductManager productManager = new ProductManager(new EfProductDao());
 
-          foreach (var product in productManager.GetByUnitPrice(10,20))
-          {
-              Console.WriteLine(product.ProductName);
-          }
+            foreach (var product in productManager.GetAllByCategoryId(2))
+            {
+                Console.WriteLine(product.ProductName);
+            }
 
         }
     }
