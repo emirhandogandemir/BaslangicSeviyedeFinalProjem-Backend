@@ -2,6 +2,7 @@
 using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
+using Entities.Concrete;
 
 namespace ConsoleUI
 {
@@ -10,10 +11,18 @@ namespace ConsoleUI
 
         static void Main(string[] args)
         {
-            ProductTest();
+           // ProductTest();
            // Ioc
             //CategoryTest();
-
+            ProductManager productManager = new ProductManager(new EfProductDao());
+            productManager.Update(new Product
+            {
+                ProductId = 10,
+                CategoryId = 7,
+                ProductName = "güncelleme",
+                UnitPrice = 100,
+                UnitsInStock = 3
+            });
 
 
         } 
