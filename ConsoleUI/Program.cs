@@ -14,16 +14,9 @@ namespace ConsoleUI
            // ProductTest();
            // Ioc
             //CategoryTest();
-            ProductManager productManager = new ProductManager(new EfProductDao());
-            productManager.Update(new Product
-            {
-                ProductId = 10,
-                CategoryId = 7,
-                ProductName = "güncelleme",
-                UnitPrice = 100,
-                UnitsInStock = 3
-            });
-
+           // ProductManager productManager = new ProductManager(new EfProductDao());
+          
+            ProductTest();
 
         } 
 
@@ -41,10 +34,20 @@ namespace ConsoleUI
         {
             ProductManager productManager = new ProductManager(new EfProductDao());
 
-            foreach (var product in productManager.GetProductDetails())
+            var result = productManager.GetProductDetails();
+            if (result.Success)
             {
-                Console.WriteLine(product.ProductName+" /"+product.CategoryName);
+                foreach (var product in result.Data)
+                {
+                    Console.WriteLine(product.ProductName + " /" + product.CategoryName);
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
+           
         }
     }
 }
