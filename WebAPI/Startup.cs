@@ -33,8 +33,8 @@ namespace WebAPI
             //AutoFac/Ninject, CastleWindsor,StructureMap , LightInject ,DryInject (Hepsi birbirinin alternatifi)--> IoC Container 
             //AOP
             services.AddControllers();
-            services.AddSingleton<IProductService,ProductManager>();// biri constructorda product service verirse ona productManager ver demek oluyor bu aslýnda
-            services.AddSingleton<IProductDao, EfProductDao>();
+            //services.AddSingleton<IProductService,ProductManager>();// biri constructorda product service verirse ona productManager ver demek oluyor bu aslýnda
+            //services.AddSingleton<IProductDao, EfProductDao>();
 
         }
 
