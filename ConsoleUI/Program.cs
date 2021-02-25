@@ -40,7 +40,7 @@ namespace ConsoleUI
 
         private static void ProductTest()
         {
-            ProductManager productManager = new ProductManager(new EfProductDao());
+            ProductManager productManager = new ProductManager(new EfProductDao(),new CategoryManager(new EfCategoryDao()));
 
             var result = productManager.GetProductDetails();
             if (result.Success)
