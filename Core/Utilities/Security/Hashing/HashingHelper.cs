@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Core.Utilities.Security.Hashing
 {
+    //Bu bizim için bir araç 
     public class HashingHelper
     {
         //verdiğimiz passwordun hashini oluşturuyor

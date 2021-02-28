@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.CCS;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
@@ -30,6 +31,8 @@ namespace Business.Concrete
             _categoryService = categoryService;
         }
 
+        //Bu kullanıcının product.add veya admin claimlerinden birine sahip olması gerekiyor
+        [SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
@@ -48,7 +51,7 @@ namespace Business.Concrete
         public IDataResult<List<Product>> GetAll()
         {
 
-            if (DateTime.Now.Hour == 23)
+            if (DateTime.Now.Hour == 11)
             {
                 return new ErrorDataResult<List<Product>>(Messages.Maintenancetime);
             }
