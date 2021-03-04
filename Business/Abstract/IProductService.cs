@@ -17,5 +17,7 @@ namespace Business.Abstract
         IResult Add(Product product);
         IResult Update(Product entity);
 
+        IResult AddTransactionalTest(Product product);
+
     }
 }
