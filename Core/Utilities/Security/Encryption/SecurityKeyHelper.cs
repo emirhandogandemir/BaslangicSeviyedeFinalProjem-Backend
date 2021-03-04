@@ -13,6 +13,6 @@ namespace Core.Utilities.Security.Encryption
         {
             //simetrik bir securityKey kullanıyor olacağız
             return new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
-        }
+        } 
     }
 }
