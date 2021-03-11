@@ -8,8 +8,9 @@ using System.Threading.Tasks;
  using Business.Concrete;
  using DataAccess.Concrete.EntityFramework;
  using Entities.Concrete;
+using System.Threading;
 
- namespace WebAPI.Controllers
+namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]//api/products controllerin adını yazıyoruz sonrasında apiden sonra
     [ApiController]
@@ -31,7 +32,7 @@ using System.Threading.Tasks;
         {
             //Swagger
             //Dependency Chain --
-        
+            Thread.Sleep(1000);
          var result = _productService.GetAll();
          if (result.Success)
          {
